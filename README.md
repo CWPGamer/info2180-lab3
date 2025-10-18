@@ -1,1 +1,2 @@
-# info2180-lab3
+# Info2180 Lab 3
+This is Lab 3 for Chad Wilson
