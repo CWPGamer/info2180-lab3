@@ -1,7 +1,6 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Display the squares on the board
     const board = document.getElementById("board");
     const squares = board.querySelectorAll('div');
     const reset = document.querySelector('.btn');
@@ -9,27 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const original_msg = 'Move your mouse over a square and click to play an X or an O.'
     console.log(squares);
     var turn = 0;
-    // var game_state = [];
     var game_state = ['', '', '', '', '', '', '' ,'', ''];
     const win_conditions = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8] , [0,4,8], [2,4,6]];
-
-
-    function squares_full() {
-        let full = true;
-        for (const item of game_state){
-            if (item === '')
-                full = false;
-        }
-        return full;
-    };
-    function squares_empty() {
-        let empty = true;
-        for (const item of game_state){
-            if (item !== '')
-                empty = false;
-        }
-        return empty;
-    };
 
     function check_squares(){
         for (let i = 0; i < win_conditions.length; i++){
