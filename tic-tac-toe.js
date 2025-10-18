@@ -48,23 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
     squares.forEach((item, index) => {
         item.classList.add("square");
         item.addEventListener("click", () =>{
-            if (turn % 2 == 0){
-                item.classList.remove('O');
-                item.classList.add('X');
-                item.innerHTML = 'X';
-                game_state[index] = 'X';
+            if (game_state[index] === ''){
+                if (turn % 2 == 0){
+                    item.classList.remove('O');
+                    item.classList.add('X');
+                    item.innerHTML = 'X';
+                    game_state[index] = 'X';
+                }
+                else{
+                    item.classList.remove('X');
+                    item.classList.add('O');
+                    item.innerHTML = 'O';
+                    game_state[index] = 'O';
+                }
+                if (check_squares()){
+                    return;
+                }
+                turn++;
+                console.log(game_state);
+
             }
-            else{
-                item.classList.remove('X');
-                item.classList.add('O');
-                item.innerHTML = 'O';
-                game_state[index] = 'O';
-            }
-            if (check_squares()){
-                return;
-            }
-            turn++;
-            console.log(game_state);
         });
         item.addEventListener("mouseover", () =>{
             item.classList.add('hover');
